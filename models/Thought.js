@@ -1,6 +1,11 @@
 const { Schema, Types, model } = require('mongoose');
 const reactionSchema = require('./Reaction.js');
 
+// Define the date format function
+function dateFormat(date) {
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`;
+  }
+
 const ThoughtSchema = new Schema(
     {
         thoughtText: {

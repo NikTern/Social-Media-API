@@ -6,11 +6,16 @@ module.exports = {
   
   // GET all thoughts
   getAllThoughts(req, res) {
-    Thought.find()
-      .then((thoughts) => res.json(thoughts))
-      .catch((err) => res.status(500).json(err))
+    Thought.find({})
+      .then((thoughts) => {
+        res.json(thoughts);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+      });
   },
-
+  
   // GET a single thought by its _id
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })

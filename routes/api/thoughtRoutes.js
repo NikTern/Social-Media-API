@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const thoughtController = require('../../controllers/thoughtController')
+const userController = require('../../controllers/userController')
 
 router.route('/')
   .get(thoughtController.getAllThoughts)
